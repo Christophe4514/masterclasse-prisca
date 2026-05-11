@@ -1,0 +1,49 @@
+// Prisma 5 + PostgreSQL (Neon) — URL pooled recommandée sur Vercel
+// https://www.prisma.io/docs/orm/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum DeliveryStatus {
+  PENDING
+  SENT
+  CANCELLED
+}
+
+model Order {
+  id               String        @id @default(cuid())
+  fullName         String
+  email            String
+  phone            String
+  country          String
+  /// Montant en plus petite unité monétaire (ex. centimes pour EUR)
+  amount           Int
+  currency         String        @default("EUR")
+  paymentStatus    PaymentStatus @default(PENDING)
+  paymentReference String?       @unique
+  createdAt        DateTime      @default(now())
+
+  delivery Delivery?
+}
+
+model Delivery {
+  id             String         @id @default(cuid())
+  orderId        String         @unique
+  order          Order          @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  deliveryStatus DeliveryStatus @default(PENDING)
+  downloadLink   String?
+  deliveredAt    DateTime?
+}
