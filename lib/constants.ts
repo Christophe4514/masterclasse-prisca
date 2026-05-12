@@ -3,7 +3,7 @@ export const PRODUCT = {
   name: "Masterclass — Prisca Makila",
   shortDescription: "Une masterclass littéraire et un accès ebook pour approfondir votre écriture.",
   /** Prix en centimes (ex. 4900 = 49,00 €) */
-  amountCents: 19_99,
+  amountCents: 19_00,
   currency: "USD" as const,
 };
 
