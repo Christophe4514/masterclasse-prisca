@@ -35,7 +35,7 @@ export function Hero() {
               href="/checkout"
               className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-porcelain shadow-lg shadow-ink/10 transition hover:bg-ink/90"
             >
-              Réserver ma place
+              Commander la masterclass
               <ArrowRight className="size-4" />
             </Link>
             <a
@@ -43,7 +43,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/70 px-6 py-3 text-sm font-semibold text-ink backdrop-blur transition hover:border-gold/40"
             >
               <BookOpen className="size-4" />
-              Découvrir le programme
+              Découvrir le livre compagnon
             </a>
           </motion.div>
           <motion.p variants={fade} className="text-sm text-ink/50">
@@ -62,16 +62,16 @@ export function Hero() {
             <p className="mt-6 text-sm font-medium text-gold-dark">Prisca Makila</p>
             <div className="mt-8 grid gap-3 text-sm text-ink/65">
               <div className="flex items-center justify-between rounded-xl bg-sand/80 px-4 py-3">
-                <span>Modules guidés</span>
+                <span>Chapitres</span>
                 <span className="font-semibold text-ink">6</span>
               </div>
               <div className="flex items-center justify-between rounded-xl bg-sand/80 px-4 py-3">
-                <span>Supports PDF</span>
+                <span>Livre compagnon</span>
                 <span className="font-semibold text-ink">Inclus</span>
               </div>
               <div className="flex items-center justify-between rounded-xl bg-sand/80 px-4 py-3">
-                <span>Accès</span>
-                <span className="font-semibold text-ink">12 mois</span>
+                <span>Dédicaces</span>
+                <span className="font-semibold text-ink">De l'auteure</span>
               </div>
             </div>
           </div>

@@ -6,15 +6,15 @@ import { PRODUCT } from "@/lib/constants";
 import { formatMoney } from "@/lib/format";
 import { Check } from "lucide-react";
 
-const perks = ["Accès 12 mois", "Livre numérique inclus", "Mises à jour mineures", "Support e-mail 30 jours"];
+const perks = ["Livre compagnon inclus", "Dédicaces de l'auteure", "Accès à la communauté"];
 
 export function Pricing() {
   return (
     <section id="tarifs" className="border-t border-ink/8 bg-sand/35">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark">Offre</p>
-          <h2 className="mt-3 font-serif text-3xl text-ink sm:text-4xl">Un investissement pour votre écriture</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark">Tarifs</p>
+          <h2 className="mt-3 font-serif text-3xl text-ink sm:text-4xl">Un livre compagnon pour vous accompagner</h2>
         </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,10 +24,10 @@ export function Pricing() {
         >
           <div className="flex items-baseline justify-between gap-4">
             <div>
-              <p className="text-sm font-medium text-ink/55">Pack complet</p>
+              <p className="text-sm font-medium text-ink/55">Livre compagnon</p>
               <p className="mt-1 font-serif text-4xl text-ink">{formatMoney(PRODUCT.amountCents, PRODUCT.currency)}</p>
             </div>
-            <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold-dark">Accès digital</span>
+            <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold-dark">Accès numérique</span>
           </div>
           <ul className="mt-8 space-y-3 text-sm text-ink/75">
             {perks.map((p) => (

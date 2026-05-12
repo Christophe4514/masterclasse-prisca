@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const links = [
   { href: "#autrice", label: "Autrice" },
-  { href: "#masterclass", label: "Programme" },
+  { href: "#masterclass", label: "Livre compagnon" },
   { href: "#tarifs", label: "Tarifs" },
   { href: "#faq", label: "FAQ" },
 ];

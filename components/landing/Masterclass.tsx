@@ -4,11 +4,12 @@ import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 
 const items = [
-  "Cartographie du désir narratif et des enjeux de voix",
-  "Ateliers d’écriture ciblés : scène, dialogue, ellipses",
-  "Corrections de posture : où la précision remplace le verbiage",
-  "Livre numérique compagnon avec lectures et exercices annotés",
-  "Espace d’intimité créative — rythme compatible avec une vie chargée",
+  "Histoire de réussite et de résilience dans l'entrepreneuriat du numérique",
+  "Des conseils pratiques pour réussir dans l'entrepreneuriat du numérique",
+  "Des astuces pour optimiser votre temps et votre productivité pour réussir dans l'entrepreneuriat du numérique",
+  "Des outils pour vous aider à vous organiser et à vous concentrer",
+  "Des conseils pour vous aider à vous organiser et à vous concentrer",
+  "Des solutions pour vous permettre de développer votre entreprise de manière durable",
 ];
 
 export function Masterclass() {
@@ -16,11 +17,11 @@ export function Masterclass() {
     <section id="masterclass" className="border-y border-ink/8 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark">Programme</p>
-          <h2 className="mt-3 font-serif text-3xl text-ink sm:text-4xl">Une masterclass taillée pour durer</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark">Contenu</p>
+          <h2 className="mt-3 font-serif text-3xl text-ink sm:text-4xl">Un livre compagnon taillé pour durer</h2>
           <p className="mt-4 text-ink/70">
-            Ni cours magistral figé, ni promesse creuse : un parcours dense, progressif, pensé pour transformer votre
-            manière d’habiter la page.
+            Découvrez mon histoire de réussite et de résilience dans l'entrepreneuriat du numérique en quelques chapitres.
+            Ce livre compagnon est conçu pour vous accompagner dans votre entreprise de manière durable.
           </p>
         </div>
         <motion.ul
