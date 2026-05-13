@@ -1,5 +1,5 @@
-import type { Prisma, PrismaClient } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
-export type OrderWithDelivery = Awaited<ReturnType<typeof PrismaClient["order"]["findUniqueOrThrow"]>({
+export type OrderWithDelivery = Prisma.OrderGetPayload<{
   include: { delivery: true };
-})>>;
+}>;

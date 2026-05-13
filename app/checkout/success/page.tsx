@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SUPPORT } from "@/lib/constants";
