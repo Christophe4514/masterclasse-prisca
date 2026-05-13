@@ -2,44 +2,44 @@
 
 import { Accordion, type AccordionItemData } from "@/components/ui/accordion";
 
-const curriculum: AccordionItemData[] = [
-  {
-    id: "m1",
-    title: "Module 1 — STEM, visibilité et modèles",
-    content:
-      "Pourquoi la sous-représentation des femmes dans le STEM structure votre trajectoire : visibilité, mentors, et conséquences concrètes sur le terrain.",
-  },
-  {
-    id: "m2",
-    title: "Module 2 — Stéréotypes, critiques, résilience",
-    content:
-      "Stratégies concrètes pour tenir dans un environnement encore très masculin : répondre sans se disperser, protéger son énergie, avancer.",
-  },
-  {
-    id: "m3",
-    title: "Module 3 — De l’idée au prototype",
-    content:
-      "Structurer une vision innovante en plan d’action : cadrer l’hypothèse, itérer, valider — sans brûler les étapes.",
-  },
-  {
-    id: "m4",
-    title: "Module 4 — Produit fini & mise sur le marché",
-    content:
-      "Du prototype à un produit commercialisé et apprécié : industrialisation, distribution, retours terrain (notamment à l’échelle nationale).",
-  },
-  {
-    id: "m5",
-    title: "Les 12 vérités du parcours",
-    content:
-      "Les douze enseignements tirés du vécu : des repères pour transformer une vision technologique en réalité industrielle.",
-  },
-  {
-    id: "m6",
-    title: "Livre compagnon & ressources",
-    content:
-      "Supports pour prolonger la master class : relire, annoter, appliquer — un compagnon pour ne pas rester seule face aux décisions.",
-  },
-];
+// const curriculum: AccordionItemData[] = [
+//   {
+//     id: "m1",
+//     title: "Module 1 — STEM, visibilité et modèles",
+//     content:
+//       "Pourquoi la sous-représentation des femmes dans le STEM structure votre trajectoire : visibilité, mentors, et conséquences concrètes sur le terrain.",
+//   },
+//   {
+//     id: "m2",
+//     title: "Module 2 — Stéréotypes, critiques, résilience",
+//     content:
+//       "Stratégies concrètes pour tenir dans un environnement encore très masculin : répondre sans se disperser, protéger son énergie, avancer.",
+//   },
+//   {
+//     id: "m3",
+//     title: "Module 3 — De l’idée au prototype",
+//     content:
+//       "Structurer une vision innovante en plan d’action : cadrer l’hypothèse, itérer, valider — sans brûler les étapes.",
+//   },
+//   {
+//     id: "m4",
+//     title: "Module 4 — Produit fini & mise sur le marché",
+//     content:
+//       "Du prototype à un produit commercialisé et apprécié : industrialisation, distribution, retours terrain (notamment à l’échelle nationale).",
+//   },
+//   {
+//     id: "m5",
+//     title: "Les 12 vérités du parcours",
+//     content:
+//       "Les douze enseignements tirés du vécu : des repères pour transformer une vision technologique en réalité industrielle.",
+//   },
+//   {
+//     id: "m6",
+//     title: "Livre compagnon & ressources",
+//     content:
+//       "Supports pour prolonger la master class : relire, annoter, appliquer — un compagnon pour ne pas rester seule face aux décisions.",
+//   },
+// ];
 
 export function Curriculum() {
   return (
