@@ -1,48 +1,73 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 import { PRODUCT } from "@/lib/constants";
 import { formatMoney } from "@/lib/format";
-import { Check } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ButtonLink } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
-const perks = ["Livre compagnon inclus", "Dédicaces de l'auteure", "Accès à la communauté"];
+const perks = [
+  "Master Classe complète (modules + bonus)",
+  "Livre numérique compagnon",
+  "Supports PDF & grilles d’atelier",
+  "Accès immédiat après paiement",
+  "Mises à jour mineures incluses",
+];
 
 export function Pricing() {
   return (
-    <section id="tarifs" className="border-t border-ink/8 bg-sand/35">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+    <section id="tarifs" className="border-t border-ink/8 bg-white">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark">Tarifs</p>
-          <h2 className="mt-3 font-serif text-3xl text-ink sm:text-4xl">Un livre compagnon pour vous accompagner</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">Tarification</p>
+          <h2 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-4xl">Une offre unique, premium</h2>
+          <p className="mt-4 text-base leading-relaxed text-ink/65">
+            Tout ce dont vous avez besoin pour stabiliser votre voix — sans dispersion.
+          </p>
         </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-12 max-w-lg rounded-[2rem] border border-ink/10 bg-white p-8 shadow-xl shadow-ink/5"
+          className="mx-auto mt-12 max-w-lg"
         >
-          <div className="flex items-baseline justify-between gap-4">
-            <div>
-              <p className="text-sm font-medium text-ink/55">Livre compagnon</p>
-              <p className="mt-1 font-serif text-4xl text-ink">{formatMoney(PRODUCT.amountCents, PRODUCT.currency)}</p>
-            </div>
-            <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold-dark">Accès numérique</span>
-          </div>
-          <ul className="mt-8 space-y-3 text-sm text-ink/75">
-            {perks.map((p) => (
-              <li key={p} className="flex items-center gap-2">
-                <Check className="size-4 text-gold-dark" />
-                {p}
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/checkout"
-            className="mt-8 flex w-full items-center justify-center rounded-full bg-ink py-3 text-sm font-semibold text-porcelain transition hover:bg-ink/90"
-          >
-            Commander
-          </Link>
+          <Card className="border-ink/10 bg-gradient-to-b from-white via-cream/25 to-porcelain shadow-card">
+            <CardContent className="p-7 sm:p-9">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-ink/55">Pack complet</p>
+                  <p className="mt-2 font-serif text-4xl tracking-tight text-ink sm:text-5xl">
+                    {formatMoney(PRODUCT.amountCents, PRODUCT.currency)}
+                  </p>
+                </div>
+                <Badge tone="plum" className="normal-case">
+                  Accès digital
+                </Badge>
+              </div>
+
+              <ul className="mt-8 space-y-3 text-sm text-ink/70">
+                {perks.map((p) => (
+                  <li key={p} className="flex items-start gap-2">
+                    <span className="mt-0.5 inline-flex size-6 items-center justify-center rounded-full bg-gold/15 text-gold-dark ring-1 ring-gold/20">
+                      <Check className="size-3.5" />
+                    </span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 rounded-2xl border border-ink/10 bg-white/70 px-4 py-3 text-center text-xs font-semibold text-ink/65">
+                Accès immédiat après paiement
+              </div>
+
+              <ButtonLink href="/checkout" variant="accent" size="xl" className="mt-6 w-full">
+                Acheter maintenant
+              </ButtonLink>
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </section>
