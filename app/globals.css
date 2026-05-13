@@ -1,19 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --sand: #f3ebe0;
-  --porcelain: #faf7f2;
-  --ink: #141210;
-  --gold: #c9a227;
-  --gold-dark: #8a6f1b;
+  --cream: #faf6f0;
+  --porcelain: #f7f4ef;
+  --sand: #efe6db;
+  --ink: #161214;
+  --ink-muted: rgba(22, 18, 20, 0.62);
+  --gold: #c6a24a;
+  --gold-dark: #8c6f2b;
+  --plum: #5c3d4f;
+  --plum-soft: #7a5a6d;
+  --terracotta: #c4715f;
+  --ring: rgba(92, 61, 79, 0.18);
+  --shadow-card: 0 18px 50px rgba(22, 18, 20, 0.08);
+  --shadow-soft: 0 10px 30px rgba(22, 18, 20, 0.06);
 }
 
 @theme inline {
-  --color-sand: var(--sand);
+  --color-cream: var(--cream);
   --color-porcelain: var(--porcelain);
+  --color-sand: var(--sand);
   --color-ink: var(--ink);
   --color-gold: var(--gold);
   --color-gold-dark: var(--gold-dark);
+  --color-plum: var(--plum);
+  --color-plum-soft: var(--plum-soft);
+  --color-terracotta: var(--terracotta);
+  --shadow-card: var(--shadow-card);
+  --shadow-soft: var(--shadow-soft);
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
 }
@@ -25,5 +39,12 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--gold) 35%, transparent);
+  background: color-mix(in srgb, var(--plum) 18%, transparent);
+}
+
+/* Lisibilité longs textes */
+.prose-premium {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--ink) 72%, transparent);
 }
