@@ -1,42 +1,51 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Feather, HeartHandshake, PenLine, Sparkles } from "lucide-react";
+import {
+  ListOrdered,
+  MessageCircleWarning,
+  MessagesSquare,
+  ShieldAlert,
+  Target,
+  Users,
+  Workflow,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
+/** Aligné sur l’avant-propos « Le prix du chemin » — Master class by Prisca Makila */
 const problems = [
   {
-    icon: PenLine,
-    title: "Vous tournoyez dans la forme",
-    text: "Des phrases soignées… mais une histoire qui peine à avancer, et un lecteur qui se décroche.",
+    icon: Users,
+    title: "Peu de visibilité des femmes dans le STEM",
+    text: "Représentation limitée et manque de modèles féminins en ingénierie : difficile de s’y projeter quand on ne voit presque personne « comme soi » sur le terrain.",
   },
   {
-    icon: Feather,
-    title: "Vous doutez de votre voix",
-    text: "Vous réécrivez sans fin, craignant d’être trop cru·e, trop sensible, ou pas « assez littéraire ».",
+    icon: MessageCircleWarning,
+    title: "Stéréotypes et critiques",
+    text: "Un secteur encore très masculin : casser les clichés, encaisser les jugements et rester concentrée sur son objectif demande des stratégies — pas seulement de la volonté.",
   },
   {
-    icon: Sparkles,
-    title: "Vous manquez de méthode",
-    text: "Vous apprenez au feeling, sans cadre : utile au début, épuisant quand le manuscrit grossit.",
+    icon: Workflow,
+    title: "De l’idée au produit qui se vend",
+    text: "Beaucoup d’étudiantes et de futures techpreneures ne savent pas comment passer d’une vision innovante à un prototype, puis à un produit fini, commercialisé et apprécié sur le marché.",
   },
 ];
 
 const solutions = [
   {
-    icon: HeartHandshake,
-    title: "Une méthode premium, humaine",
-    text: "Des modules courts, exigeants, concrets : cartographier, trancher, resserrer — sans tuer la sensibilité.",
+    icon: MessagesSquare,
+    title: "Des réponses réelles sur le parcours",
+    text: "Une master class pensée pour répondre aux questions concrètes sur le chemin parcouru et les difficultés rencontrées — pour les jeunes femmes en STEM, les futures techpreneures et toute personne porteuse d’une vision innovante.",
   },
   {
-    icon: PenLine,
-    title: "Des outils immédiatement actionnables",
-    text: "Fiches, grilles, prompts d’atelier : vous réinvestissez chaque leçon dans votre manuscrit le jour même.",
+    icon: ShieldAlert,
+    title: "Gérer l’hostilité et cadrer la vision",
+    text: "Des directives pour affronter les stéréotypes et les critiques, et des méthodes pour transformer une simple idée en vision concrète, actionnable.",
   },
   {
-    icon: Sparkles,
-    title: "Un livre compagnon qui prolonge",
-    text: "Un ebook riche pour relire, annoter, progresser entre deux sessions — comme un mentor dans la poche.",
+    icon: ListOrdered,
+    title: "Les 12 vérités du parcours",
+    text: "Le partage des douze leçons tirées du vécu : des repères pour passer d’une vision technologique à une réalité industrielle, sans détour.",
   },
 ];
 
@@ -45,13 +54,16 @@ export function ProblemSolution() {
     <section id="transform" className="border-y border-ink/8 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">Pourquoi cette Master Classe</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">
+            Master class — Le prix du chemin
+          </p>
           <h2 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-4xl">
-            Quand l’écriture devient un labyrinthe, il faut une boussole
+            Pourquoi ce parcours existe
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink/65">
-            Ce parcours est pensé pour les voix modernes : celles qui veulent être lues, comprises, aimées — sans
-            sacrifier leur singularité.
+            Ce livre compagnon répond à un constat : le besoin de parler du manque de femmes dans le STEM, et d’offrir un
+            guide pour avancer dans une industrie dominée par les hommes — de la première intuition au produit
+            industriel abouti.
           </p>
         </div>
 
@@ -63,7 +75,7 @@ export function ProblemSolution() {
             transition={{ duration: 0.4 }}
             className="space-y-4"
           >
-            <p className="text-sm font-semibold text-terracotta">Les blocages fréquents</p>
+            <p className="text-sm font-semibold text-terracotta">Les défis au cœur du récit</p>
             <div className="grid gap-4">
               {problems.map((p) => (
                 <Card key={p.title} className="border-ink/10 bg-cream/35">
@@ -88,7 +100,7 @@ export function ProblemSolution() {
             transition={{ duration: 0.4, delay: 0.05 }}
             className="space-y-4"
           >
-            <p className="text-sm font-semibold text-plum">Ce que vous gagnez</p>
+            <p className="text-sm font-semibold text-plum">Ce que la master class vous apporte</p>
             <div className="grid gap-4">
               {solutions.map((p) => (
                 <Card key={p.title} className="border-plum/15 bg-gradient-to-br from-white to-cream/60">
@@ -106,6 +118,22 @@ export function ProblemSolution() {
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.35, delay: 0.1 }}
+          className="mx-auto mt-12 flex max-w-2xl flex-col items-center gap-3 rounded-2xl border border-gold/25 bg-gold/5 px-6 py-5 text-center sm:flex-row sm:text-left"
+        >
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-white ring-1 ring-gold/20">
+            <Target className="size-5 text-gold-dark" />
+          </span>
+          <p className="text-sm leading-relaxed text-ink/75">
+            <strong className="text-ink">Objectif :</strong> transformer une vision technologique en réalité industrielle
+            — avec les clés opérationnelles et la résilience indispensables pour tenir le chemin.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

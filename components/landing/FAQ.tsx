@@ -5,27 +5,27 @@ import { Accordion, type AccordionItemData } from "@/components/ui/accordion";
 const faqs: AccordionItemData[] = [
   {
     id: "f1",
-    title: "Comment accéder à la Master Classe après achat ?",
+    title: "Comment commander le livre compagnon ?",
     content:
-      "Vous recevez un e-mail de confirmation puis un second message avec votre lien d’accès sécurisé. L’activation est automatisée dès validation du paiement par votre prestataire.",
+      "En cliquant sur le bouton 'Acheter maintenant' ou en allant sur la page de paiement sur le site, vous pouvez commander le livre compagnon. Une fois le paiement effectué, vous recevrez un e-mail de confirmation avec le lien de téléchargement du livre compagnon.",
   },
   {
     id: "f2",
-    title: "Puis-je suivre à mon rythme ?",
+    title: "Comment puis-je suivre à mon rythme ?",
     content:
-      "Oui. Le contenu reste disponible sur une longue période (selon les conditions affichées au moment de l’achat) pour vous permettre d’alterner écriture, relecture et reprise des leçons.",
+      "Le livre compagnon est disponible en téléchargement immédiat après le paiement. Vous pouvez télécharger le livre compagnon et le lire à votre rythme.",
   },
   {
     id: "f3",
-    title: "Le livre numérique est-il inclus ?",
+    title: "Le livre compagnon est-il inclus ?",
     content:
-      "Oui : le pack inclut le livre compagnon au format numérique, avec exercices et repères utilisés dans la masterclass.",
+      "Oui : le livre compagnon est inclus dans le prix de vente. Vous pouvez télécharger le livre compagnon et le lire à votre rythme.",
   },
   {
     id: "f4",
-    title: "Proposez-vous des remboursements ?",
+    title: "Comment puis-je me faire rembourser ?",
     content:
-      "Les contenus numériques étant livrés instantanément, une politique stricte s’applique. Contactez-nous en cas de problème technique avéré : nous trouverons une solution équitable.",
+      "En cas de problème avec le livre compagnon, vous pouvez contacter l'auteure via WhatsApp ou par e-mail. Nous vous aiderons à trouver une solution équitable.",
   },
 ];
 

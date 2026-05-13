@@ -36,10 +36,10 @@ export function Hero() {
             variants={fade}
             className="mt-6 font-serif text-[2.35rem] leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.35rem]"
           >
-            Donnez à votre écriture{" "}
+            Découvrez le livre compagnon{" "}
             <span className="bg-gradient-to-r from-plum via-terracotta to-gold bg-clip-text text-transparent">
-              une voix irrésistible
-            </span>
+              LE PRIZ DU CHEMIN
+            </span> 12 vérités apprises en marchant.
           </motion.h1>
 
           <motion.p variants={fade} className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">

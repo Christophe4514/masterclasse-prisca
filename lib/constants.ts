@@ -2,7 +2,7 @@
 export const PRODUCT = {
   name: "Master Classe — Prisca Makila",
   shortDescription:
-    "Le premier ouvrage de Prisca Makila : clés opérationnelles et stratégies de résilience pour passer de la vision technologique à la réalité industrielle — du prototypage à l’échelle nationale.",
+    "Le premier ouvrage de L'ingénieur Prisca Makila.",
   /** Prix en plus petite unité monétaire */
   amountCents: 19_00,
   currency: "USD" as const,
@@ -18,7 +18,7 @@ export const SITE = {
 
 /** Liens publics (marketing / succès / footer) */
 export const SUPPORT = {
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "bonjour@priscamakila.com",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "priscamakila@kimengin.com",
   whatsappUrl:
     process.env.NEXT_PUBLIC_WHATSAPP_URL ??
     "https://wa.me/?text=Bonjour%20Prisca%2C%20j%E2%80%99ai%20une%20question%20sur%20la%20Master%20Classe.",

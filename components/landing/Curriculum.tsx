@@ -46,17 +46,16 @@ export function Curriculum() {
     <section id="programme" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">Contenu</p>
-        <h2 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-4xl">Le programme, en profondeur</h2>
+        <h2 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-4xl">Le livre compagnon</h2>
         <p className="mt-4 text-base leading-relaxed text-ink/65">
-          Modules vidéo, chapitres structurants, bonus pratiques : tout est pensé pour une progression nette, sans
-          surcharge cognitive.
+          Chapitres structurants, bonus pratiques : tout est pensé pour une progression nette, sans surcharge cognitive.
         </p>
       </div>
 
       <div className="mx-auto mt-12 max-w-3xl">
-        <Accordion items={curriculum} />
+        {/* <Accordion items={curriculum} /> */}
         <p className="mt-6 text-center text-xs text-ink/45">
-          Format : vidéos + supports PDF · Accès replay · Mises à jour mineures incluses
+          Commander a un prix preferentiel et le livre le 15 septembre 2026 le jour du vernissage de l'ouvrage avec un dedicace personnalisée de l'auteure. 
         </p>
       </div>
     </section>

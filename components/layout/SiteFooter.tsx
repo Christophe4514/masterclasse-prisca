@@ -60,11 +60,11 @@ export function SiteFooter() {
                     Politique de confidentialité
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/admin/login" className="hover:text-ink">
                     Administration
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

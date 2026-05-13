@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, Cpu, Factory } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,13 +25,15 @@ export function AboutAuthor() {
         >
           <Card className="overflow-hidden border-ink/10 bg-white/95 p-0">
             <div className="relative aspect-[4/5] w-full bg-gradient-to-br from-plum/15 via-cream to-terracotta/15">
-              <div className="absolute inset-0 flex items-center justify-center p-10">
-                <div className="relative size-44 rounded-full border border-white/60 bg-white/40 shadow-soft backdrop-blur-md sm:size-52">
-                  <span className="absolute inset-0 flex items-center justify-center font-serif text-4xl text-ink/35">
-                    PM
-                  </span>
-                </div>
-              </div>
+              <Image
+                src="/images/author.JPG"
+                alt="Portrait de Prisca Makila"
+                fill
+                className="object-cover object-[center_20%]"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                priority
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
               <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-sm leading-snug text-ink/75 backdrop-blur-md">
                 « De la vision technologique à la réalité industrielle. »
               </div>
