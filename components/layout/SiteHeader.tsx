@@ -7,12 +7,14 @@ import { ButtonLink } from "@/components/ui/button";
 import { Modal } from "@/components/ui/modal";
 import { cn } from "@/lib/cn";
 
+/** Ancres sur l’accueil — préfixe `/` pour que la navigation fonctionne depuis checkout, etc. */
 const links = [
-  { href: "#autrice", label: "Autrice" },
-  { href: "#transform", label: "Parcours" },
-  { href: "#programme", label: "Programme" },
-  { href: "#tarifs", label: "Tarifs" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#autrice", label: "À propos" },
+  { href: "/#transform", label: "Pourquoi ce livre existe" },
+  { href: "/#temoignages", label: "Témoignages" },
+  { href: "/#tarifs", label: "Tarifs" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -27,9 +29,9 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-ink/65 md:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="transition hover:text-ink">
+            <Link key={l.href} href={l.href} className="transition hover:text-ink">
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -52,7 +54,7 @@ export function SiteHeader() {
       <Modal open={open} title="Menu" description="Navigation rapide" onClose={() => setOpen(false)}>
         <nav className="space-y-2">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className={cn(
@@ -62,7 +64,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <ButtonLink href="/checkout" variant="accent" size="lg" className="mt-2 w-full" onClick={() => setOpen(false)}>
             Acheter maintenant

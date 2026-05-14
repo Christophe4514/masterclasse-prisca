@@ -43,7 +43,7 @@ function Stars({ value }: { value: number }) {
 
 export function Testimonials() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+    <section id="temoignages" className="scroll-mt-28 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">Témoignages</p>
         <h2 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-4xl">La confiance se mérite</h2>

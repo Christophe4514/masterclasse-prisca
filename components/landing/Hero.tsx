@@ -51,7 +51,7 @@ export function Hero() {
               Acheter maintenant
               <ArrowRight className="size-4" />
             </ButtonLink>
-            <ButtonLink href="#programme" variant="secondary" size="xl" className="w-full sm:w-auto">
+            <ButtonLink href="#tarifs" variant="secondary" size="xl" className="w-full sm:w-auto">
               <BookOpen className="size-4" />
               Voir le programme
             </ButtonLink>

@@ -16,7 +16,7 @@ const perks = [
 
 export function Pricing() {
   return (
-    <section id="tarifs" className="border-t border-ink/8 bg-white">
+    <section id="tarifs" className="scroll-mt-28 border-t border-ink/8 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">Tarification</p>

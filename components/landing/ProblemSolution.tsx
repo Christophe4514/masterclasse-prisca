@@ -51,7 +51,7 @@ const solutions = [
 
 export function ProblemSolution() {
   return (
-    <section id="transform" className="border-y border-ink/8 bg-white">
+    <section id="transform" className="scroll-mt-28 border-y border-ink/8 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">

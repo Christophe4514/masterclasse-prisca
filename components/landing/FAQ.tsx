@@ -31,7 +31,7 @@ const faqs: AccordionItemData[] = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="border-t border-ink/8 bg-cream/25">
+    <section id="faq" className="scroll-mt-28 border-t border-ink/8 bg-cream/25">
       <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:py-28">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">FAQ</p>

@@ -34,7 +34,7 @@ export function SiteFooter() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-2">
-            <div>
+            <div id="contact" className="scroll-mt-28">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">Contact</p>
               <a
                 href={`mailto:${SUPPORT.email}`}

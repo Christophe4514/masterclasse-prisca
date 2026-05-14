@@ -13,7 +13,7 @@ export function AboutAuthor() {
   const [distinctionsOpen, setDistinctionsOpen] = useState(false);
 
   return (
-    <section id="autrice" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+    <section id="autrice" className="scroll-mt-28 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
       <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
         <motion.div
           className="lg:col-span-5"
