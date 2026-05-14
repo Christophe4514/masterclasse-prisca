@@ -4,7 +4,8 @@ export type MaishaReturnPageVariant =
   | "session"
   | "refused"
   | "unknown"
-  | "server_error";
+  | "server_error"
+  | "declined";
 
 function escapeHtml(s: string): string {
   return s
@@ -38,6 +39,11 @@ const copy: Record<
     title: "Erreur technique",
     lead: "La confirmation du paiement n’a pas pu être enregistrée.",
     detail: "Si vous avez été débité, contactez-nous avec l’heure du paiement et votre e-mail.",
+  },
+  declined: {
+    title: "Paiement refusé",
+    lead: "La transaction a été refusée ou annulée côté MaishaPay.",
+    detail: "Aucun encaissement n’a été confirmé sur notre site. Vous pouvez réessayer quand vous le souhaitez.",
   },
 };
 
