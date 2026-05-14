@@ -15,7 +15,7 @@ export const SITE = {
   title: "Prisca Makila — Master Classe & livre numérique",
   description:
     "Master Classe & livre numérique de Prisca Makila (KIM ENGINEERING, KIM BOX) : clés opérationnelles, résilience et passage à l’échelle industriel.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://masterclasse-prisca.vercel.app",
 };
 
 /** Liens publics (marketing / succès / footer) */
@@ -30,8 +30,6 @@ export const SUPPORT = {
 };
 
 export const SOCIAL = {
-  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://instagram.com/",
-  facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "https://facebook.com/",
-  youtube: process.env.NEXT_PUBLIC_YOUTUBE_URL ?? "https://youtube.com/",
-  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "https://linkedin.com/",
+  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://www.instagram.com/ingenieure_prisca_makila?igsh=MXUxeWxqMnBoN3BmYQ==",
+  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "https://www.linkedin.com/in/ing%C3%A9nieure-prisca-makila-biakong-4b9418242?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 };

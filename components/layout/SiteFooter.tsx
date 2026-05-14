@@ -4,8 +4,6 @@ import { SOCIAL, SITE, SUPPORT } from "@/lib/constants";
 
 const social = [
   { href: SOCIAL.instagram, label: "Instagram", Icon: Instagram },
-  { href: SOCIAL.facebook, label: "Facebook", Icon: Facebook },
-  { href: SOCIAL.youtube, label: "YouTube", Icon: Youtube },
   { href: SOCIAL.linkedin, label: "LinkedIn", Icon: Linkedin },
 ] as const;
 
