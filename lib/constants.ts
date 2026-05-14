@@ -7,7 +7,7 @@ export const PRODUCT = {
   shortDescription:
     "Le premier ouvrage de l’ingénieure Prisca Makila.",
   /** Prix facturé aujourd’hui (prévente avant sortie) — centimes */
-  amountCents: 1_00,
+  amountCents: 15_59,
   /** Prix catalogue après sortie — affiché barré pendant la promo */
   listPriceCents: 20_99,
   currency: "USD" as const,
