@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { MAISHAPAY_PENDING_ORDER_COOKIE } from "@/lib/maishapay";
 import { maishaPayReturnHtmlResponse } from "@/lib/payment/maishapay-return-html";
-import { fulfillOrderPaid, markOrderPaymentFailed } from "@/lib/payment/fulfill-order";
+import { fulfillOrderPaid, deletePendingOrderOnPaymentFailure } from "@/lib/payment/fulfill-order";
 
 function queryParamsMap(url: URL): Map<string, string> {
   const m = new Map<string, string>();
@@ -126,7 +126,7 @@ async function handle(req: Request) {
   }
 
   if (isExplicitFailure(status, description)) {
-    await markOrderPaymentFailed(orderId, ref);
+    await deletePendingOrderOnPaymentFailure(orderId);
     const res = maishaPayReturnHtmlResponse(url.origin, "refused");
     clearPendingCookie(res);
     return res;

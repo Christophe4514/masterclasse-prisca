@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, PhoneCall, Youtube } from "lucide-react";
+import { Instagram, Linkedin, Mail, PhoneCall } from "lucide-react";
 import { SOCIAL, SITE, SUPPORT } from "@/lib/constants";
 
 const social = [

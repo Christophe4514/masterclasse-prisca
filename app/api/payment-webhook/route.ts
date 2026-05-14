@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { fulfillOrderPaid, markOrderPaymentFailed } from "@/lib/payment/fulfill-order";
+import { fulfillOrderPaid, deletePendingOrderOnPaymentFailure } from "@/lib/payment/fulfill-order";
 
 const webhookBodySchema = z.object({
   orderId: z.string().min(1),
@@ -18,7 +18,7 @@ const webhookBodySchema = z.object({
  * - Vérifiez TOUJOURS la signature avec le secret du dashboard — ne faites jamais confiance au JSON brut.
  * - Répondez rapidement (2xx) pour éviter les retries infinis.
  *
- * Ce handler minimal met à jour Order + Delivery et envoie les e-mails Resend.
+ * Ce handler minimal valide le paiement (Order + livraison + e-mails) ou supprime la commande en attente si refusé.
  */
 export async function POST(req: Request) {
   const secret = process.env.PAYMENT_WEBHOOK_SECRET;
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
   const { orderId, paymentReference, paid } = parsed.data;
   if (!paid) {
-    await markOrderPaymentFailed(orderId, paymentReference);
+    await deletePendingOrderOnPaymentFailure(orderId);
     return NextResponse.json({ ok: true, status: "failed" });
   }
 

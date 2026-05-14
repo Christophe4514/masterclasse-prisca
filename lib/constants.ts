@@ -1,3 +1,6 @@
+/** Délai max. pour payer une commande en attente (aligné avec la redirection MaishaPay). */
+export const PENDING_CHECKOUT_MAX_MS = 2 * 60 * 60 * 1000;
+
 /** Produit numérique — masterclass / ebook Prisca Makila */
 export const PRODUCT = {
   name: "Master Classe — Prisca Makila",

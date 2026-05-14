@@ -5,7 +5,7 @@ import { COOKIE_NAME, isValidAdminSession } from "@/lib/admin-session";
 
 /**
  * GET /api/admin/export
- * Export CSV des commandes — protégé par session admin (cookie).
+ * Export CSV des commandes payées — protégé par session admin (cookie).
  */
 export async function GET() {
   const secret = process.env.ADMIN_SECRET;
@@ -16,6 +16,7 @@ export async function GET() {
   }
 
   const orders = await prisma.order.findMany({
+    where: { paymentStatus: "PAID" },
     orderBy: { createdAt: "desc" },
     include: { delivery: true },
   });
@@ -69,7 +70,7 @@ export async function GET() {
     status: 200,
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": `attachment; filename="commandes-${new Date().toISOString().slice(0, 10)}.csv"`,
+      "Content-Disposition": `attachment; filename="commandes-payees-${new Date().toISOString().slice(0, 10)}.csv"`,
     },
   });
 }

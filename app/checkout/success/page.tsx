@@ -28,7 +28,7 @@ export default async function CheckoutSuccessPage({
           </Badge>
           <h1 className="mt-5 font-serif text-3xl tracking-tight text-ink sm:text-4xl">Félicitations</h1>
           <p className="mt-4 text-sm leading-relaxed text-ink/65 sm:text-base">
-            Merci pour votre confiance. Votre accès est en cours d’activation — vous recevrez aussi un e-mail récapitulatif.
+            Merci pour votre confiance. Votre accès est en cours d’activation — vous recevrez un e-mail avec votre facture et un second pour l’accès numérique.
           </p>
         </div>
 

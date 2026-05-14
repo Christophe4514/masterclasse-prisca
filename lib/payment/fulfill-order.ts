@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { sendDeliveryEmail, sendPaymentConfirmationEmail } from "@/lib/email";
+import { sendDeliveryEmail, sendInvoiceEmail } from "@/lib/email";
 import { formatMoney } from "@/lib/format";
 
 const downloadUrl = () =>
@@ -51,11 +51,14 @@ export async function fulfillOrderPaid(orderId: string, paymentReference: string
 
   const amountLabel = formatMoney(existing.amount, existing.currency);
 
-  await sendPaymentConfirmationEmail({
+  await sendInvoiceEmail({
     to: existing.email,
     customerName: existing.fullName,
     orderId: existing.id,
     amountLabel,
+    currency: existing.currency,
+    paymentReference,
+    orderDate: existing.createdAt,
   });
 
   await sendDeliveryEmail({
@@ -67,11 +70,9 @@ export async function fulfillOrderPaid(orderId: string, paymentReference: string
   return { ok: true as const, alreadyPaid: false };
 }
 
-export async function markOrderPaymentFailed(orderId: string, paymentReference: string) {
-  const ref =
-    paymentReference.trim() || `failed-${orderId}-${Date.now()}`;
-  await prisma.order.updateMany({
+/** Supprime la commande restée en attente (échec / annulation) pour ne pas encombrer la base. */
+export async function deletePendingOrderOnPaymentFailure(orderId: string) {
+  await prisma.order.deleteMany({
     where: { id: orderId, paymentStatus: "PENDING" },
-    data: { paymentStatus: "FAILED", paymentReference: ref },
   });
 }

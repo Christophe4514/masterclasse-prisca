@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
-import { PRODUCT } from "@/lib/constants";
+import { PRODUCT, PENDING_CHECKOUT_MAX_MS } from "@/lib/constants";
 import { maishaPayConfigured } from "@/lib/maishapay";
 import { checkoutSchema } from "@/lib/validators/checkout";
 
@@ -14,6 +14,7 @@ const bodySchema = checkoutSchema.extend({
  * POST /api/checkout
  *
  * Crée une commande en base (paiement PENDING) + livraison en attente.
+ * Les commandes PENDING expirées (sans paiement dans le délai défini) sont purgées pour limiter le volume en base.
  * Si MaishaPay est configuré, le client redirige vers `/api/payments/maishapay/submit?orderId=…`
  * (page HTML auto-POST vers la passerelle — clés API uniquement côté serveur).
  */
@@ -38,6 +39,14 @@ export async function POST(req: Request) {
   const currency = PRODUCT.currency;
 
   try {
+    const expiredBefore = new Date(Date.now() - PENDING_CHECKOUT_MAX_MS);
+    await prisma.order.deleteMany({
+      where: {
+        paymentStatus: "PENDING",
+        createdAt: { lt: expiredBefore },
+      },
+    });
+
     const order = await prisma.order.create({
       data: {
         fullName,

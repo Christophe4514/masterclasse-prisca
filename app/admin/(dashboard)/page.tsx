@@ -13,6 +13,7 @@ export const metadata = {
 
 export default async function AdminDashboardPage() {
   const orders = await prisma.order.findMany({
+    where: { paymentStatus: "PAID" },
     orderBy: { createdAt: "desc" },
     include: { delivery: true },
   });
@@ -21,8 +22,8 @@ export default async function AdminDashboardPage() {
     <div className="space-y-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-serif text-3xl tracking-tight text-ink sm:text-4xl">Commandes</h1>
-          <p className="mt-2 text-sm text-ink/60">Recherche, statuts paiement, export.</p>
+          <h1 className="font-serif text-3xl tracking-tight text-ink sm:text-4xl">Commandes payées</h1>
+          <p className="mt-2 text-sm text-ink/60">Commandes payées uniquement — recherche, export.</p>
         </div>
         <ButtonLink href="/api/admin/export" variant="secondary" size="md">
           Exporter CSV

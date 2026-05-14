@@ -3,15 +3,13 @@
  *
  * **Une seule URL** (`MAISHAPAY_CHECKOUT_URL` ou défaut marchand).
  *
- * **`gatewayMode` fixe en sandbox** : la constante `MAISHAPAY_GATEWAY_MODE` vaut toujours `0` (doc MaishaPay).
- * Utilisez les clés d’essai associées dans le dashboard.
+ * **`gatewayMode` doit correspondre aux clés** (doc MaishaPay) :
+ * `0` = sandbox / clés d’essai, `1` = production / clés live du compte marchand.
+ * Sinon : erreur « Compte not found » / mode de fonctionnement.
  */
 
 const DEFAULT_CHECKOUT_URL =
   "https://marchand.maishapay.online/payment/vers1.0/merchant/checkout";
-
-/** Doc MaishaPay : 0 = sandbox (test) — non configurable via `.env`. */
-export const MAISHAPAY_GATEWAY_MODE = 0 as const;
 
 /** Retire espaces et guillemets accidentels autour des clés copiées depuis le dashboard. */
 export function normalizeMaishaPayApiKey(value: string): string {
@@ -23,6 +21,27 @@ export function normalizeMaishaPayApiKey(value: string): string {
     s = s.slice(1, -1).trim();
   }
   return s;
+}
+
+/**
+ * Doc MaishaPay : `0` = sandbox, `1` = production (live).
+ * Défini par `MAISHAPAY_GATEWAY_MODE` ; si absent, heuristique sur la clé publique (`LIVE` → production).
+ */
+export function getMaishaPayGatewayMode(): 0 | 1 {
+  const raw = process.env.MAISHAPAY_GATEWAY_MODE?.trim().toLowerCase();
+  if (raw === "1" || raw === "live" || raw === "production") return 1;
+  if (raw === "0" || raw === "sandbox" || raw === "test") return 0;
+  if (raw != null && raw !== "") {
+    const n = Number.parseInt(raw, 10);
+    if (n === 1) return 1;
+    if (n === 0) return 0;
+  }
+
+  const pub = normalizeMaishaPayApiKey(process.env.MAISHAPAY_PUBLIC_API_KEY ?? "");
+  if (/live|prod/i.test(pub)) return 1;
+  if (/sandbox|test|stag/i.test(pub)) return 0;
+
+  return 0;
 }
 
 export function getMaishaPayCheckoutUrl(): string {

@@ -31,13 +31,16 @@ const columns: ColumnDef<Row>[] = [
   { accessorKey: "email", header: "E-mail" },
   { accessorKey: "country", header: "Pays" },
   {
-    accessorKey: "paymentStatus",
-    header: "Paiement",
-    cell: ({ getValue }) => (
-      <span className="inline-flex rounded-full bg-sand px-2 py-0.5 text-xs font-medium capitalize text-ink/80">
-        {String(getValue()).toLowerCase()}
-      </span>
-    ),
+    accessorKey: "paymentReference",
+    header: "Réf. paiement",
+    cell: ({ getValue }) => {
+      const v = getValue() as string | null;
+      return v ? (
+        <span className="font-mono text-xs text-ink/85">{v}</span>
+      ) : (
+        <span className="text-ink/40">—</span>
+      );
+    },
   },
   {
     id: "amount",
