@@ -10,6 +10,37 @@ function queryParamsMap(url: URL): Map<string, string> {
   return m;
 }
 
+/**
+ * MaishaPay renvoie parfois une URL du type
+ * `...?oid=<id>?status=200&description=APPROVED&...` (second `?` au lieu de `&` après l’id).
+ * Le moteur d’URL place alors `status=200` dans la valeur de `oid` et ne expose pas `status`.
+ * On restaure l’identifiant commande et on fusionne les paires encastrées.
+ */
+function repairMaishaPayCallbackParams(params: Map<string, string>) {
+  const orderKeys = ["oid", "orderid", "order_id"];
+  for (const key of orderKeys) {
+    const raw = params.get(key);
+    if (!raw) continue;
+    const q = raw.indexOf("?");
+    if (q === -1) continue;
+
+    const cleanId = raw.slice(0, q);
+    const embedded = raw.slice(q + 1);
+    if (!cleanId || !embedded) continue;
+
+    params.set(key, cleanId);
+    try {
+      const embeddedParams = new URLSearchParams(embedded);
+      embeddedParams.forEach((v, k) => {
+        const lk = k.toLowerCase();
+        if (!params.has(lk)) params.set(lk, v);
+      });
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
 async function readBodyParams(req: Request, into: Map<string, string>) {
   const ct = (req.headers.get("content-type") ?? "").toLowerCase();
   try {
@@ -71,7 +102,7 @@ function isMaishaPaySuccess(status: string | undefined, description: string | un
   if (n === 202 || n === 201 || n === 200) return true;
   const first = d.split(/[.,;]/)[0]?.trim() ?? "";
   if (first === "accepted" || first === "acceptée") return true;
-  if (d === "success" || d === "paid" || d === "completed") return true;
+  if (d === "success" || d === "paid" || d === "completed" || d === "approved") return true;
   return false;
 }
 
@@ -100,8 +131,10 @@ function clearPendingCookie(res: NextResponse) {
 async function handle(req: Request) {
   const url = new URL(req.url);
   const params = queryParamsMap(url);
+  repairMaishaPayCallbackParams(params);
   if (req.method === "POST") {
     await readBodyParams(req, params);
+    repairMaishaPayCallbackParams(params);
   }
 
   const jar = await cookies();
