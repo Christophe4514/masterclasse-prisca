@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import {
+  MAISHAPAY_GATEWAY_MODE,
   MAISHAPAY_PENDING_ORDER_COOKIE,
+  getMaishaPayCheckoutUrl,
   maishaPayAmountString,
   maishaPayConfigured,
+  normalizeMaishaPayApiKey,
   toMaishaPayDevise,
 } from "@/lib/maishapay";
 import { SITE } from "@/lib/constants";
@@ -30,10 +33,18 @@ export async function GET(req: Request) {
     );
   }
 
-  const publicKey = "MP-LIVEPK-$53lKES$5JyfZ8.U$vc9s69DUCUX0i5d0nE7KtTQ1feH$iMG6BEkV3fnfb1hIA.iVAeuf9j14l8sy2j1e2Auie1$Wh6IujKNh28BS$Lry0/Be9b4be9f2jIt";
-    const secretKey = "MP-LIVEPK-cv2WrfJ8m8St8z0pcMk4IoyK1hMeMo.$$P$71qlDOmkXoEM8FR$O2GBBLnJcyu9VE1rmHf2e4$MMPftfhJ4PCFDVtNi1hUzwcX20T4c82MEj$NIorebesGj0";
-    const checkoutAction = "https://marchand.maishapay.online/payment/vers1.0/merchant/checkout";
-    const gatewayMode = 1;
+  const pubRaw = process.env.MAISHAPAY_PUBLIC_API_KEY;
+  const secRaw = process.env.MAISHAPAY_SECRET_API_KEY;
+  if (!pubRaw || !secRaw) {
+    return NextResponse.json(
+      { error: "Paiement MaishaPay non configuré (clés API manquantes)." },
+      { status: 503 },
+    );
+  }
+
+  const publicKey = normalizeMaishaPayApiKey(pubRaw);
+  const secretKey = normalizeMaishaPayApiKey(secRaw);
+  const checkoutAction = getMaishaPayCheckoutUrl();
 
   const { searchParams } = new URL(req.url);
   const orderId = searchParams.get("orderId")?.trim();
@@ -65,9 +76,9 @@ export async function GET(req: Request) {
 <body>
 <p style="font-family:system-ui,sans-serif;text-align:center;margin-top:2rem">Redirection vers le paiement sécurisé…</p>
 <form id="mp" method="POST" action="${escapeAttr(checkoutAction)}">
-<input type="hidden" name="gatewayMode" value="${gatewayMode}"/>
-<input type="hidden" name="publicApiKey" value="${publicKey}"/>
-<input type="hidden" name="secretApiKey" value="${secretKey}"/>
+<input type="hidden" name="gatewayMode" value="${MAISHAPAY_GATEWAY_MODE}"/>
+<input type="hidden" name="publicApiKey" value="${escapeAttr(publicKey)}"/>
+<input type="hidden" name="secretApiKey" value="${escapeAttr(secretKey)}"/>
 <input type="hidden" name="montant" value="${escapeAttr(montant)}"/>
 <input type="hidden" name="devise" value="${escapeAttr(devise)}"/>
 <input type="hidden" name="callbackUrl" value="${escapeAttr(callbackUrl)}"/>
