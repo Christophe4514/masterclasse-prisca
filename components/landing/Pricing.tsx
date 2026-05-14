@@ -9,11 +9,9 @@ import { ButtonLink } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const perks = [
-  "Master Classe complète (modules + bonus)",
-  "Livre numérique compagnon",
-  "Supports PDF & grilles d’atelier",
-  "Accès immédiat après paiement",
-  "Mises à jour mineures incluses",
+  "Master Classe complète (livre + dédicace) : 12 vérités apprises en marchant.",
+  "Acces au vernissage du livre",
+  "Dédicace personnalisée de l'auteure",
 ];
 
 export function Pricing() {
@@ -24,7 +22,7 @@ export function Pricing() {
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">Tarification</p>
           <h2 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-4xl">Une offre unique, premium</h2>
           <p className="mt-4 text-base leading-relaxed text-ink/65">
-            Tout ce dont vous avez besoin pour stabiliser votre voix — sans dispersion.
+            Tout ce dont vous avez besoin pour stabiliser votre voix sans dispersion.
           </p>
         </div>
 
@@ -66,7 +64,7 @@ export function Pricing() {
               </ul>
 
               <div className="mt-8 rounded-2xl border border-ink/10 bg-white/70 px-4 py-3 text-center text-xs font-semibold text-ink/65">
-                Accès immédiat après paiement
+                Obtenez votre livre le 15 septembre, le jour du vernissage du livre.
               </div>
 
               <ButtonLink href="/checkout" variant="accent" size="xl" className="mt-6 w-full">

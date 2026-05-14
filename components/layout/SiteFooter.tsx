@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, PhoneCall, Youtube } from "lucide-react";
 import { SOCIAL, SITE, SUPPORT } from "@/lib/constants";
 
 const social = [
@@ -43,6 +43,13 @@ export function SiteFooter() {
                 <Mail className="size-4 text-plum" />
                 {SUPPORT.email}
               </a>
+              <a
+                href={`tel:${SUPPORT.phone}`}
+                className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-plum"
+              >
+                <PhoneCall className="size-4 text-plum" />
+                {SUPPORT.phone}
+              </a>
               <p className="mt-4 text-xs leading-relaxed text-ink/50">
                 Réponse sous 48h ouvrées (indicatif).
               </p>
@@ -55,11 +62,11 @@ export function SiteFooter() {
                     Paiement sécurisé
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/confidentialite" className="hover:text-ink">
                     Politique de confidentialité
                   </Link>
-                </li>
+                </li> */}
                 {/* <li>
                   <Link href="/admin/login" className="hover:text-ink">
                     Administration

@@ -17,15 +17,15 @@ const faqs: AccordionItemData[] = [
   },
   {
     id: "f3",
-    title: "Le livre compagnon est-il inclus ?",
+    title: "Le livre et la dédicace sont-ils inclus ?",
     content:
-      "Oui : le livre compagnon est inclus dans le prix de vente. Vous pouvez télécharger le livre compagnon et le lire à votre rythme.",
+      "Oui : le livre et la dédicace sont inclus dans le prix de vente. Vous recevrez également une dédicace personnalisée de l'auteure.",
   },
   {
     id: "f4",
     title: "Comment puis-je me faire rembourser ?",
     content:
-      "En cas de problème avec le livre compagnon, vous pouvez contacter l'auteure via WhatsApp ou par e-mail. Nous vous aiderons à trouver une solution équitable.",
+      "En cas de problème avec le livre, vous pouvez contacter l'auteure via WhatsApp ou par e-mail. Nous vous aiderons à trouver une solution équitable.",
   },
 ];
 

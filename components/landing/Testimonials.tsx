@@ -48,7 +48,7 @@ export function Testimonials() {
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">Témoignages</p>
         <h2 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-4xl">La confiance se mérite</h2>
         <p className="mt-4 text-base leading-relaxed text-ink/65">
-          Des retours de lecteur·rice·s et d’écrivain·e·s qui ont choisi l’exigence — sans sacrifier la douceur du
+          Des retours de lecteur (rice) et d’écrivain (e) qui ont choisi l’exigence sans sacrifier la douceur du
           parcours.
         </p>
       </div>
