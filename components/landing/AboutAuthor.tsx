@@ -59,7 +59,7 @@ export function AboutAuthor() {
                 Prisca Makila est <strong>ingénieure en Électronique Industrielle et Informatique Appliquée</strong>,
                 diplômée de l’<strong>Institut Supérieur de Techniques Appliquées (ISTA)</strong>. Elle est la fondatrice
                 et <strong>CEO</strong> de l’entreprise <strong>KIM ENGINEERING</strong> et l’inventrice de la{" "}
-                <strong>KIM BOX</strong>, une logette intelligente conçue pour la gestion de l’énergie.
+                <strong>KIM BOX</strong>, une logette intelligente conçue pour la gestion de l’énergie électrique.
               </p>
 
               <div className="rounded-2xl border border-gold/20 bg-gold/5 px-5 py-4">
@@ -99,13 +99,13 @@ export function AboutAuthor() {
 
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  { Icon: Cpu, k: "Formation", v: "ISTA — Électronique & informatique appliquée" },
+                  { Icon: Cpu, k: "Formation", v: "ISTA : Électronique industrielle & informatique appliquée" },
                   {
                     Icon: GraduationCap,
                     k: "Certification",
-                    v: "National University (WES) — Certificate of Completion : Leaders Transform Business Growth Program — 30 h, 3 CEU — sept. 2022",
+                    v: "National University (WES) : Certificate of Completion : Leaders Transform Business Growth Program — sept. 2022",
                   },
-                  { Icon: Award, k: "28+", v: "Distinctions & salons" },
+                  { Icon: Award, k: "26+", v: "Distinctions & salons internationaux" },
                 ].map(({ Icon, k, v }) => (
                   <div key={k} className="rounded-2xl border border-ink/8 bg-cream/50 px-4 py-4">
                     <Icon className="size-5 text-plum" aria-hidden />

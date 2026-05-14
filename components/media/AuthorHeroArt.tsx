@@ -13,7 +13,7 @@ export function AuthorHeroArt({ className }: { className?: string }) {
       )}
     >
       <Image
-        src="/images/couverture.png"
+        src="/images/couverture.jpg"
         alt="Couverture — Le prix du chemin, par Prisca Makila"
         fill
         className="object-cover object-center"

@@ -9,7 +9,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const perks = [
-  "Master Classe complète (livre + dédicace) : 12 vérités apprises en marchant.",
+  "Master Classe complète (livre + dédicace) : 12 vérités que j'ai apprises en marchant.",
   "Acces au vernissage du livre",
   "Dédicace personnalisée de l'auteure",
 ];

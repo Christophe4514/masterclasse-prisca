@@ -1,10 +1,10 @@
 /** Liste complète — section « Reconnaissances » (AboutAuthor, modal). */
 
 export const DISTINCTIONS_PREVIEW = [
-  "Le deuxième prix Hacmacker by AUF",
-  "Meilleur jeune entrepreneur by Fnjec 2021",
-  "1er prix expo béton 2021",
-  "Forbes 30 Under 30",
+  "Forbes 30 Under 30 (2022)",
+  "Miss Entrepreneure par le Level Up Makutano (2023)",
+  "Première Congolaise nominée aux Women in Tech Awards en Afrique du Sud (2024)",
+  "Primée au Global Entrepreneurship Award au Ghana (2025)",
 ] as const;
 
 export const ALL_DISTINCTIONS: string[] = [
@@ -35,7 +35,6 @@ export const ALL_DISTINCTIONS: string[] = [
   "Diplôme de mérite by Ici et ailleurs — 2022",
   "Parmi les 100 femmes qui réinventent l’Afrique by Divas Cameroun 🇨🇲",
   "Parmi les 100 femmes phénoménales — 2026 by Optimum",
-  "Certificate of Completion — National University (Workforce Education Solutions) : Leaders Transform Business Growth Program — 30 h de formation, 3 CEU — septembre 2022",
 ];
 
 export const INTERNATIONAL_SALONS: string[] = [

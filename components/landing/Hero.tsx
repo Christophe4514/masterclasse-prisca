@@ -40,7 +40,7 @@ export function Hero() {
             <span className="bg-gradient-to-r from-plum via-terracotta to-gold bg-clip-text text-transparent">
               LE PRIX DU CHEMIN
             </span>{" "}
-            <br /> &ldquo;12 vérités apprises en marchant.&rdquo;
+            <br /> &ldquo;12 vérités que j'ai apprises en marchant.&rdquo;
           </motion.h1>
 
           <motion.p variants={fade} className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
