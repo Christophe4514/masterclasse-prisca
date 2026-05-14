@@ -34,10 +34,25 @@ export function CheckoutForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
-    const json = (await res.json()) as { orderId?: string; error?: string };
+    const json = (await res.json()) as {
+      orderId?: string;
+      maishapaySubmitUrl?: string | null;
+      message?: string;
+      error?: string;
+    };
 
     if (!res.ok) {
       setServerError(json.error ?? "Une erreur est survenue.");
+      return;
+    }
+
+    if (json.maishapaySubmitUrl) {
+      window.location.assign(json.maishapaySubmitUrl);
+      return;
+    }
+
+    if (json.orderId && json.message) {
+      setServerError(json.message);
       return;
     }
 
@@ -103,7 +118,8 @@ export function CheckoutForm() {
       </Button>
 
       <p className="text-center text-xs leading-relaxed text-ink/45">
-        Paiement à brancher (Stripe, Lemon Squeezy…). La commande est créée côté serveur avant encaissement.
+        Après validation, redirection vers <strong>MaishaPay</strong> (paiement sécurisé). La commande est créée avant
+        encaissement ; la confirmation arrive après retour sur le site.
       </p>
     </form>
   );
