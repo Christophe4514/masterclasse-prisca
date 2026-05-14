@@ -56,12 +56,18 @@ export default function CheckoutPage() {
                 <div className="mt-6 space-y-4 text-sm text-ink/70">
                   <div className="flex items-start justify-between gap-4">
                     <span className="leading-snug">{PRODUCT.name}</span>
-                    <span className="shrink-0 font-semibold text-ink">
-                      {formatMoney(PRODUCT.amountCents, PRODUCT.currency)}
+                    <span className="shrink-0 text-right">
+                      <span className="mr-2 text-xs font-normal text-ink/40 line-through">
+                        {formatMoney(PRODUCT.listPriceCents, PRODUCT.currency)}
+                      </span>
+                      <span className="font-semibold text-ink">
+                        {formatMoney(PRODUCT.amountCents, PRODUCT.currency)}
+                      </span>
                     </span>
                   </div>
+                  <p className="text-xs font-medium text-terracotta">Prévente — prix avant sortie du livre</p>
                   <p className="text-xs leading-relaxed text-ink/50">
-                    Taxes éventuelles selon votre pays au moment du paiement réel. Le montant catalogue est validé côté
+                    Taxes éventuelles selon votre pays au moment du paiement réel. Le montant facturé est validé côté
                     serveur.
                   </p>
                 </div>

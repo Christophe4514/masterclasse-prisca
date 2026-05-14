@@ -39,9 +39,15 @@ export function Pricing() {
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
                   <p className="text-sm font-medium text-ink/55">Pack complet</p>
-                  <p className="mt-2 font-serif text-4xl tracking-tight text-ink sm:text-5xl">
-                    {formatMoney(PRODUCT.amountCents, PRODUCT.currency)}
-                  </p>
+                  <div className="mt-2 flex flex-wrap items-baseline gap-2">
+                    <p className="font-serif text-4xl tracking-tight text-ink sm:text-5xl">
+                      {formatMoney(PRODUCT.amountCents, PRODUCT.currency)}
+                    </p>
+                    <p className="text-base text-ink/45 line-through decoration-ink/25">
+                      {formatMoney(PRODUCT.listPriceCents, PRODUCT.currency)}
+                    </p>
+                  </div>
+                  <p className="mt-1 text-xs font-medium text-terracotta">Offre prévente jusqu&apos;à la sortie du livre</p>
                 </div>
                 <Badge tone="plum" className="normal-case">
                   Accès digital

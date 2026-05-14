@@ -24,7 +24,7 @@ export function Hero() {
           <motion.div variants={fade} className="flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-plum">
               <Sparkles className="size-3.5" />
-              Master Classe digitale
+              Master Classe
             </span>
             <Badge tone="gold" className="normal-case tracking-normal">
               <ShieldCheck className="size-3.5" />
@@ -36,10 +36,10 @@ export function Hero() {
             variants={fade}
             className="mt-6 font-serif text-[2.35rem] leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.35rem]"
           >
-            Découvrez le livre compagnon{" "}
+            Découvrez le livre :{" "}
             <span className="bg-gradient-to-r from-plum via-terracotta to-gold bg-clip-text text-transparent">
-              LE PRIZ DU CHEMIN
-            </span> 12 vérités apprises en marchant.
+              LE PRIX DU CHEMIN
+            </span> <br /> "12 vérités apprises en marchant."
           </motion.h1>
 
           <motion.p variants={fade} className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
@@ -57,8 +57,19 @@ export function Hero() {
             </ButtonLink>
           </motion.div>
 
-          <motion.p variants={fade} className="mt-6 text-sm text-ink/50">
-            Accès immédiat après paiement · {formatMoney(PRODUCT.amountCents, PRODUCT.currency)}
+          <motion.p variants={fade} className="mt-6 space-y-2 text-sm text-ink/50">
+            <span className="block">Disponible le 15 septembre 2026</span>
+            <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <Badge tone="gold" className="normal-case">
+                Prévente — avant la sortie
+              </Badge>
+              <span className="line-through decoration-ink/30">
+                {formatMoney(PRODUCT.listPriceCents, PRODUCT.currency)}
+              </span>
+              <span className="font-semibold text-ink">
+                {formatMoney(PRODUCT.amountCents, PRODUCT.currency)}
+              </span>
+            </span>
           </motion.p>
         </motion.div>
 

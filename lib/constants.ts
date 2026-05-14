@@ -2,9 +2,11 @@
 export const PRODUCT = {
   name: "Master Classe — Prisca Makila",
   shortDescription:
-    "Le premier ouvrage de L'ingénieur Prisca Makila.",
-  /** Prix en plus petite unité monétaire */
-  amountCents: 19_00,
+    "Le premier ouvrage de l’ingénieure Prisca Makila.",
+  /** Prix facturé aujourd’hui (prévente avant sortie) — centimes */
+  amountCents: 12_99,
+  /** Prix catalogue après sortie — affiché barré pendant la promo */
+  listPriceCents: 19_99,
   currency: "USD" as const,
 };
 
