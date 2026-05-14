@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { PRODUCT, SITE } from "@/lib/constants";
+import { invoiceTableHtmlEmail, type InvoicePayload } from "@/lib/invoice";
 
 function getResend() {
   const key = process.env.RESEND_API_KEY;
@@ -17,6 +18,7 @@ const from = () =>
 export async function sendInvoiceEmail(params: {
   to: string;
   customerName: string;
+  customerEmail: string;
   orderId: string;
   amountLabel: string;
   currency: string;
@@ -24,21 +26,20 @@ export async function sendInvoiceEmail(params: {
   orderDate: Date;
 }) {
   const resend = getResend();
-  const dateStr = new Intl.DateTimeFormat("fr-FR", {
-    dateStyle: "long",
-    timeStyle: "short",
-  }).format(params.orderDate);
+  const payload: InvoicePayload = {
+    customerName: params.customerName,
+    customerEmail: params.customerEmail,
+    orderId: params.orderId,
+    amountLabel: params.amountLabel,
+    currency: params.currency,
+    paymentReference: params.paymentReference,
+    orderDate: params.orderDate,
+  };
 
   const html = `
     <p>Bonjour ${escapeHtml(params.customerName)},</p>
     <p>Veuillez trouver ci-dessous le reçu de votre achat auprès de <strong>${escapeHtml(SITE.name)}</strong>.</p>
-    <table style="border-collapse:collapse;margin:1.25rem 0;font-size:14px;max-width:520px" cellpadding="8" cellspacing="0">
-      <tr><td style="border:1px solid #ddd"><strong>Facture / commande</strong></td><td style="border:1px solid #ddd"><code>${escapeHtml(params.orderId)}</code></td></tr>
-      <tr><td style="border:1px solid #ddd"><strong>Date</strong></td><td style="border:1px solid #ddd">${escapeHtml(dateStr)}</td></tr>
-      <tr><td style="border:1px solid #ddd"><strong>Produit</strong></td><td style="border:1px solid #ddd">${escapeHtml(PRODUCT.name)}</td></tr>
-      <tr><td style="border:1px solid #ddd"><strong>Montant TTC</strong></td><td style="border:1px solid #ddd">${escapeHtml(params.amountLabel)} (${escapeHtml(params.currency)})</td></tr>
-      <tr><td style="border:1px solid #ddd"><strong>Réf. paiement</strong></td><td style="border:1px solid #ddd"><code>${escapeHtml(params.paymentReference)}</code></td></tr>
-    </table>
+    ${invoiceTableHtmlEmail(payload)}
     <p>Un second e-mail vous indiquera comment accéder à votre contenu numérique.</p>
     <p>— ${escapeHtml(SITE.name)}</p>
   `;

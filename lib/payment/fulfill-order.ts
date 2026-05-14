@@ -54,6 +54,7 @@ export async function fulfillOrderPaid(orderId: string, paymentReference: string
   await sendInvoiceEmail({
     to: existing.email,
     customerName: existing.fullName,
+    customerEmail: existing.email,
     orderId: existing.id,
     amountLabel,
     currency: existing.currency,
