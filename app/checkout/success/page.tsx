@@ -74,8 +74,9 @@ export default async function CheckoutSuccessPage({
             </div>
 
             <p className="mt-8 text-center text-xs leading-relaxed text-ink/50">
-              Si votre paiement est géré par un prestataire externe, la confirmation finale peut arriver quelques secondes
-              après le webhook <code className="font-mono text-[11px]">/api/payment-webhook</code>.
+            Si votre paiement est géré par un prestataire externe, la confirmation finale peut arriver quelques secondes
+            après le webhook <code className="font-mono text-[11px]">/api/payment-webhook</code> ou après le retour
+            MaishaPay.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { PRODUCT } from "@/lib/constants";
+import { maishaPayConfigured } from "@/lib/maishapay";
 import { checkoutSchema } from "@/lib/validators/checkout";
 
 const bodySchema = checkoutSchema.extend({
@@ -13,12 +14,8 @@ const bodySchema = checkoutSchema.extend({
  * POST /api/checkout
  *
  * Crée une commande en base (paiement PENDING) + livraison en attente.
- *
- * INTÉGRATION FUTURE (Stripe, Lemon Squeezy, PayPal, etc.) :
- * 1. Valider le panier / produit (prix, devise) uniquement côté serveur (déjà fait via PRODUCT).
- * 2. Créer la session de paiement chez le prestataire avec metadata.orderId = order.id
- * 3. Retourner { checkoutUrl } pour redirection navigateur, ou clientSecret pour Payment Element.
- * 4. Laisser paymentReference null jusqu’au webhook de confirmation.
+ * Si MaishaPay est configuré, le client redirige vers `/api/payments/maishapay/submit?orderId=…`
+ * (page HTML auto-POST vers la passerelle — clés API uniquement côté serveur).
  */
 export async function POST(req: Request) {
   let json: unknown;
@@ -59,15 +56,19 @@ export async function POST(req: Request) {
       select: { id: true },
     });
 
-    // --- Branchez ici votre prestataire de paiement ---
-    // const session = await stripe.checkout.sessions.create({ ... metadata: { orderId: order.id } })
-    // return NextResponse.json({ orderId: order.id, checkoutUrl: session.url })
+    if (maishaPayConfigured()) {
+      const submitPath = `/api/payments/maishapay/submit?orderId=${encodeURIComponent(order.id)}`;
+      return NextResponse.json({
+        orderId: order.id,
+        maishapaySubmitUrl: submitPath,
+      });
+    }
 
     return NextResponse.json({
       orderId: order.id,
-      checkoutUrl: null as string | null,
+      maishapaySubmitUrl: null as string | null,
       message:
-        "Commande enregistrée. Intégrez un prestataire de paiement pour renvoyer checkoutUrl.",
+        "Commande enregistrée. Configurez MAISHAPAY_PUBLIC_API_KEY et MAISHAPAY_SECRET_API_KEY pour activer le paiement MaishaPay.",
     });
   } catch (e) {
     console.error("[checkout]", e);

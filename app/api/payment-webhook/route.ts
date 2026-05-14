@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { prisma } from "@/lib/prisma";
-import { sendDeliveryEmail, sendPaymentConfirmationEmail } from "@/lib/email";
-import { formatMoney } from "@/lib/format";
+import { fulfillOrderPaid, markOrderPaymentFailed } from "@/lib/payment/fulfill-order";
 
 const webhookBodySchema = z.object({
   orderId: z.string().min(1),
@@ -44,54 +42,15 @@ export async function POST(req: Request) {
 
   const { orderId, paymentReference, paid } = parsed.data;
   if (!paid) {
-    await prisma.order.updateMany({
-      where: { id: orderId },
-      data: { paymentStatus: "FAILED", paymentReference },
-    });
+    await markOrderPaymentFailed(orderId, paymentReference);
     return NextResponse.json({ ok: true, status: "failed" });
   }
 
-  const downloadUrl =
-    process.env.DIGITAL_DELIVERY_URL ?? `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/merci`;
-
   try {
-    const order = await prisma.order.update({
-      where: { id: orderId },
-      data: {
-        paymentStatus: "PAID",
-        paymentReference,
-      },
-      include: { delivery: true },
-    });
-
-    if (!order.delivery) {
-      return NextResponse.json({ error: "Livraison introuvable." }, { status: 400 });
+    const result = await fulfillOrderPaid(orderId, paymentReference);
+    if (!result.ok) {
+      return NextResponse.json({ error: "Commande introuvable ou déjà traitée." }, { status: 400 });
     }
-
-    await prisma.delivery.update({
-      where: { id: order.delivery.id },
-      data: {
-        deliveryStatus: "SENT",
-        downloadLink: downloadUrl,
-        deliveredAt: new Date(),
-      },
-    });
-
-    const amountLabel = formatMoney(order.amount, order.currency);
-
-    await sendPaymentConfirmationEmail({
-      to: order.email,
-      customerName: order.fullName,
-      orderId: order.id,
-      amountLabel,
-    });
-
-    await sendDeliveryEmail({
-      to: order.email,
-      customerName: order.fullName,
-      downloadLink: downloadUrl,
-    });
-
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("[payment-webhook]", e);

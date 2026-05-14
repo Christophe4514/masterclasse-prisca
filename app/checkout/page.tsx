@@ -6,6 +6,7 @@ import { PRODUCT } from "@/lib/constants";
 import { formatMoney } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Alert } from "@/components/ui/alert";
 import { ShieldCheck, Sparkles } from "lucide-react";
 
 export const metadata = {
@@ -13,7 +14,27 @@ export const metadata = {
   description: "Finalisez votre commande — Master Classe & livre numérique Prisca Makila.",
 };
 
-export default function CheckoutPage() {
+const paymentMessages: Record<string, { title: string; body: string; tone: "error" | "info" }> = {
+  refused: {
+    tone: "error",
+    title: "Paiement non abouti",
+    body: "La transaction a été refusée ou annulée. Aucun débit définitif n’a été confirmé de notre côté. Vous pouvez réessayer.",
+  },
+  error: {
+    tone: "error",
+    title: "Erreur de confirmation",
+    body: "Le retour depuis la banque n’a pas pu être traité. Si vous avez été débité, contactez-nous avec votre e-mail et l’heure du paiement.",
+  },
+};
+
+export default async function CheckoutPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ payment?: string }>;
+}) {
+  const { payment } = await searchParams;
+  const paymentAlert = payment ? paymentMessages[payment] : undefined;
+
   return (
     <>
       <SiteHeader />
@@ -33,10 +54,18 @@ export default function CheckoutPage() {
             Finalisez votre accès
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-ink/65 sm:text-base lg:max-w-xl">
-            Quelques informations — puis redirection vers la confirmation. Vos données servent uniquement à la livraison
-            et au support client.
+            Quelques informations — puis redirection vers <strong>MaishaPay</strong> pour le paiement. Vos données servent
+            uniquement à la livraison et au support client.
           </p>
         </div>
+
+        {paymentAlert ? (
+          <div className="mx-auto mt-8 max-w-2xl lg:mx-0">
+            <Alert tone={paymentAlert.tone} title={paymentAlert.title}>
+              {paymentAlert.body}
+            </Alert>
+          </div>
+        ) : null}
 
         <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-7">
