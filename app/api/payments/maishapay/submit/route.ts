@@ -1,12 +1,9 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import {
-  getMaishaPayCheckoutUrl,
-  getMaishaPayGatewayMode,
   MAISHAPAY_PENDING_ORDER_COOKIE,
   maishaPayAmountString,
   maishaPayConfigured,
-  normalizeMaishaPayApiKey,
   toMaishaPayDevise,
 } from "@/lib/maishapay";
 import { PENDING_CHECKOUT_MAX_MS, SITE } from "@/lib/constants";
@@ -25,15 +22,6 @@ function escapeAttr(value: string): string {
  */
 export async function GET(req: Request) {
   if (!maishaPayConfigured()) {
-    return NextResponse.json(
-      { error: "Paiement MaishaPay non configuré (clés API manquantes)." },
-      { status: 503 },
-    );
-  }
-
-  const pubRaw = process.env.MAISHAPAY_PUBLIC_API_KEY;
-  const secRaw = process.env.MAISHAPAY_SECRET_API_KEY;
-  if (!pubRaw || !secRaw) {
     return NextResponse.json(
       { error: "Paiement MaishaPay non configuré (clés API manquantes)." },
       { status: 503 },
