@@ -10,6 +10,7 @@ import { cn } from "@/lib/cn";
 /** Ancres sur l’accueil — préfixe `/` pour que la navigation fonctionne depuis checkout, etc. */
 const links = [
   { href: "/#autrice", label: "À propos" },
+  { href: "/#editeur", label: "Éditeur" },
   { href: "/#transform", label: "Pourquoi ce livre existe" },
   { href: "/#temoignages", label: "Témoignages" },
   { href: "/#tarifs", label: "Tarifs" },
