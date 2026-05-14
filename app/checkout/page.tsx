@@ -51,11 +51,11 @@ export default async function CheckoutPage({
             </Badge>
           </div>
           <h1 className="mt-5 font-serif text-3xl tracking-tight text-ink sm:text-4xl lg:text-5xl">
-            Finalisez votre accès
+            Finalisez votre achat
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-ink/65 sm:text-base lg:max-w-xl">
-            Quelques informations — puis redirection vers <strong>MaishaPay</strong> pour le paiement. Vos données servent
-            uniquement à la livraison et au support client.
+            Quelques informations puis redirection vers <strong>MaishaPay</strong> pour le paiement. Vos données servent
+            uniquement à la livraison.
           </p>
         </div>
 
