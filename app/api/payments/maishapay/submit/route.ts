@@ -33,10 +33,10 @@ export async function GET(req: Request) {
     );
   }
 
-  const publicKey = "MP-SBPK-dsK61xEy09p0T1m6gO4NvQuJoj0SUmdK.$uq34mLjzBty$caGMru2j2l4zJ$5VeZ$1$5Bp/iq$lBy6zlD2FiXEnsz1gziT2NpbyD/enZ90K5FVNHQZAFeR75";
-    const secretKey = "MP-SBPK-NGYNy$2y4$9gDWXM7ZBmKqqTO2A8xeP02O$oA6lxyme3J1BoYA/TSwrs9Jd$XQzSW.V2GheDV.zmRHRCjU$0nRmkg9cR1$PYNJg1X6SPgC4Ox2YMageyeozF";
+  const publicKey = "MP-LIVEPK-$53lKES$5JyfZ8.U$vc9s69DUCUX0i5d0nE7KtTQ1feH$iMG6BEkV3fnfb1hIA.iVAeuf9j14l8sy2j1e2Auie1$Wh6IujKNh28BS$Lry0/Be9b4be9f2jIt";
+    const secretKey = "MP-LIVEPK-cv2WrfJ8m8St8z0pcMk4IoyK1hMeMo.$$P$71qlDOmkXoEM8FR$O2GBBLnJcyu9VE1rmHf2e4$MMPftfhJ4PCFDVtNi1hUzwcX20T4c82MEj$NIorebesGj0";
     const checkoutAction = "https://marchand.maishapay.online/payment/vers1.0/merchant/checkout";
-    const gatewayMode = 0;
+    const gatewayMode = 1;
 
   const { searchParams } = new URL(req.url);
   const orderId = searchParams.get("orderId")?.trim();
