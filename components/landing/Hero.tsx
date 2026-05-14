@@ -61,7 +61,7 @@ export function Hero() {
             <span className="block">Disponible le 15 septembre 2026</span>
             <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <Badge tone="gold" className="normal-case">
-                Prévente — avant la sortie
+                Prévente avant la sortie du livre
               </Badge>
               <span className="line-through decoration-ink/30">
                 {formatMoney(PRODUCT.listPriceCents, PRODUCT.currency)}

@@ -1,18 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Award, Cpu, Factory } from "lucide-react";
+import { Award, Cpu, GraduationCap, ListOrdered } from "lucide-react";
+import { ALL_DISTINCTIONS, DISTINCTIONS_PREVIEW, INTERNATIONAL_SALONS } from "@/lib/author-distinctions";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
-const distinctions = [
-  "Forbes 30 Under 30 (2022)",
-  "Miss Entrepreneure — Level Up Makutano (2023)",
-  "Première Congolaise nominée aux Women in Tech Awards — Afrique du Sud (2024)",
-  "Global Entrepreneurship Award — Ghana (2025)",
-];
+import { Modal } from "@/components/ui/modal";
 
 export function AboutAuthor() {
+  const [distinctionsOpen, setDistinctionsOpen] = useState(false);
+
   return (
     <section id="autrice" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
       <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
@@ -66,17 +65,28 @@ export function AboutAuthor() {
               <div className="rounded-2xl border border-gold/20 bg-gold/5 px-5 py-4">
                 <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gold-dark">
                   <Award className="size-4 shrink-0" />
-                  Reconnaissance — 26 distinctions nationales et internationales
+                  Reconnaissance & distinctions nationales et internationales :
                 </p>
                 <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/75">
-                  {distinctions.map((item) => (
+                  {DISTINCTIONS_PREVIEW.map((item) => (
                     <li key={item} className="flex gap-2">
                       <span className="mt-2 size-1 shrink-0 rounded-full bg-terracotta" aria-hidden />
                       <span>{item}</span>
                     </li>
                   ))}
-                  <li className="pl-3 text-xs text-ink/50">… et d’autres prix au fil de son parcours.</li>
                 </ul>
+                <div className="mt-4 flex justify-start">
+                  <Button
+                    type="button"
+                    variant="outlineGold"
+                    size="sm"
+                    className="gap-2"
+                    onClick={() => setDistinctionsOpen(true)}
+                  >
+                    <ListOrdered className="size-4" />
+                    Tout voir
+                  </Button>
+                </div>
               </div>
 
               <p className="prose-premium">
@@ -90,8 +100,12 @@ export function AboutAuthor() {
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
                   { Icon: Cpu, k: "Formation", v: "ISTA — Électronique & informatique appliquée" },
-                  { Icon: Factory, k: "Terrain", v: "Prototypage → échelle nationale (RDC)" },
-                  { Icon: Award, k: "26+", v: "Distinctions & prix" },
+                  {
+                    Icon: GraduationCap,
+                    k: "Certification",
+                    v: "National University (WES) — Certificate of Completion : Leaders Transform Business Growth Program — 30 h, 3 CEU — sept. 2022",
+                  },
+                  { Icon: Award, k: "28+", v: "Distinctions & salons" },
                 ].map(({ Icon, k, v }) => (
                   <div key={k} className="rounded-2xl border border-ink/8 bg-cream/50 px-4 py-4">
                     <Icon className="size-5 text-plum" aria-hidden />
@@ -104,6 +118,35 @@ export function AboutAuthor() {
           </Card>
         </motion.div>
       </div>
+
+      <Modal
+        open={distinctionsOpen}
+        onClose={() => setDistinctionsOpen(false)}
+        title="Distinctions & salons internationaux"
+        description="Liste des reconnaissances et représentations de la RDC sur la scène internationale."
+        className="max-w-2xl"
+      >
+        <div className="max-h-[min(70vh,560px)] space-y-6 overflow-y-auto pr-1">
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-plum">Prix et distinctions</h3>
+            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-ink/80">
+              {ALL_DISTINCTIONS.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-plum">
+              Salons internationaux — représentation de la RDC
+            </h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink/80">
+              {INTERNATIONAL_SALONS.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 }

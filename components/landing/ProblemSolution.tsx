@@ -55,15 +55,16 @@ export function ProblemSolution() {
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-plum">
-            Master class — Le prix du chemin
+            Master class : Le prix du chemin
           </p>
           <h2 className="mt-3 font-serif text-3xl tracking-tight text-ink sm:text-4xl">
             Pourquoi ce parcours existe
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink/65">
             Ce livre compagnon répond à un constat : le besoin de parler du manque de femmes dans le STEM, et d’offrir un
-            guide pour avancer dans une industrie dominée par les hommes — de la première intuition au produit
-            industriel abouti.
+            guide pour avancer dans une industrie dominée par les hommes :
+            <br />
+            <span className="mt-1 inline-block sm:mt-0">du prototypage au produit industriel abouti.</span>
           </p>
         </div>
 
