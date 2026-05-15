@@ -24,7 +24,7 @@ export const SITE = {
 /** Liens publics (marketing / succès / footer) */
 export const SUPPORT = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "priscamakila@kimengin.com",
-  phone: process.env.NEXT_PUBLIC_PHONE_NUMBER ?? "+243 814 311 909",
+  phone: process.env.NEXT_PUBLIC_PHONE_NUMBER ?? "+243 830 867 459",
   whatsappUrl:
     process.env.NEXT_PUBLIC_WHATSAPP_URL ??
     "https://wa.me/?text=Bonjour%20Prisca%2C%20j%E2%80%99ai%20une%20question%20sur%20la%20Master%20Classe.",

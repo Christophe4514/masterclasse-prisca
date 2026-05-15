@@ -77,7 +77,17 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-ink/8 pt-8 text-xs text-ink/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Prisca Makila. Tous droits réservés.</p>
-          <p className="text-ink/40">Design premium — Next.js + Tailwind</p>
+          <p className="text-ink/40">
+            Designed by{" "}
+            <a
+              href="https://jeanchristophe-wizamo.vercel.app/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-ink/55 transition hover:text-plum"
+            >
+              SWITCH
+            </a>
+          </p>
         </div>
       </div>
     </footer>

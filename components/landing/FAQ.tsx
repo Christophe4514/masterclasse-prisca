@@ -7,25 +7,25 @@ const faqs: AccordionItemData[] = [
     id: "f1",
     title: "Comment commander le livre compagnon ?",
     content:
-      "En cliquant sur le bouton 'Acheter maintenant' ou en allant sur la page de paiement sur le site, vous pouvez commander le livre compagnon. Une fois le paiement effectué, vous recevrez un e-mail de confirmation avec le lien de téléchargement du livre compagnon.",
+      "En cliquant sur le bouton 'Acheter maintenant' ou en allant sur la page de paiement sur le site, vous pouvez commander le livre compagnon. Une fois le paiement effectué, vous recevrez un e-mail de confirmation.une facture vous sera emise et vous pouvez la télécharger au format PDF.",
   },
   {
     id: "f2",
-    title: "Comment puis-je suivre à mon rythme ?",
+    title: "Comment puis-je obtenir le livre ?",
     content:
-      "Le livre compagnon est disponible en téléchargement immédiat après le paiement. Vous pouvez télécharger le livre compagnon et le lire à votre rythme.",
+      "Le jour du vernissage du livre, vous pourrez venir le récupérer en personne ou nous le faire envoyer à votre adresse. la facture emise vous sera demandée pour la livraison.",
   },
   {
     id: "f3",
-    title: "Le livre et la dédicace sont-ils inclus ?",
+    title: "Quand sera le vernissage du livre ?",
     content:
-      "Oui : le livre et la dédicace sont inclus dans le prix de vente. Vous recevrez également une dédicace personnalisée de l'auteure.",
+      "Le vernissage aura lieu le 15 septembre 2026 à kinshasa. Les détails vous seront communiqués par e-mail.",
   },
   {
     id: "f4",
-    title: "Comment puis-je me faire rembourser ?",
+    title: "Comment puis-je contacter l'auteure ?",
     content:
-      "En cas de problème avec le livre, vous pouvez contacter l'auteure via WhatsApp ou par e-mail. Nous vous aiderons à trouver une solution équitable.",
+      "Vous pouvez contacter l'auteure via WhatsApp ou par e-mail. Nous vous répondrons dans les 48 heures ouvrées.",
   },
 ];
 

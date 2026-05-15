@@ -6,24 +6,24 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const reviews = [
   {
-    name: "Léa M.",
-    role: "Romancière",
-    text: "Une clarté rare : j’ai enfin arrêté de tourner autour de mes scènes. Le livre compagnon est une pépite.",
-    initials: "LM",
+    name: "Jean-Christophe W.",
+    role: "Développeur Full Stack",
+    text: "Le livre est une pépite. Je l'ai lu en entier et je suis très content de l'avoir.",
+    initials: "JCW",
     rating: 5,
   },
   {
-    name: "Thomas K.",
-    role: "Scénariste",
+    name: "Rabby M.",
+    role: "Administrateur",
     text: "Des outils concrets, une exigence bienveillante. Mes dialogues ont gagné en densité sans perdre en respiration.",
-    initials: "TK",
-    rating: 5,
+    initials: "RM",
+    rating: 4,
   },
   {
-    name: "Aminata D.",
-    role: "Essayiste",
-    text: "On sent une pratique réelle de l’écriture. Premium, humain, crédible — exactement ce que je cherchais.",
-    initials: "AD",
+    name: "Sandrine M.",
+    role: "Etudiante en médecine",
+    text: "On sent une pratique réelle. Je suis très content de l'avoir.",
+    initials: "SM",
     rating: 5,
   },
 ];
