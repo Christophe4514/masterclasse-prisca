@@ -61,8 +61,8 @@ export function Hero() {
           <motion.p variants={fade} className="mt-6 space-y-2 text-sm text-ink/50">
             <span className="block">Disponible le 15 septembre 2026</span>
             <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <Badge tone="gold" className="normal-case">
-                Prévente avant la sortie du livre
+              <Badge tone="gold" className="normal-case tracking-normal">
+                Prévente avant la sortie du livre — offre spéciale anniversaire de l&apos;auteure
               </Badge>
               <span className="line-through decoration-ink/30">
                 {formatMoney(PRODUCT.listPriceCents, PRODUCT.currency)}

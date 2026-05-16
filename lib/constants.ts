@@ -9,7 +9,7 @@ export const PRODUCT = {
   /** Prix facturé aujourd’hui (prévente avant sortie) — centimes */
   amountCents: 15_59,
   /** Prix catalogue après sortie — affiché barré pendant la promo */
-  listPriceCents: 20_99,
+  listPriceCents: 23_59,
   currency: "USD" as const,
 };
 

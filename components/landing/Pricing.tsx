@@ -45,7 +45,7 @@ export function Pricing() {
                       {formatMoney(PRODUCT.listPriceCents, PRODUCT.currency)}
                     </p>
                   </div>
-                  <p className="mt-1 text-xs font-medium text-terracotta">Offre prévente jusqu&apos;à la sortie du livre</p>
+                  <p className="mt-1 text-xs font-medium text-terracotta">Offre prévente jusqu&apos;à la sortie du livre — offre spéciale juste pour l&apos;anniversaire de l&apos;auteure.</p>
                 </div>
                 <Badge tone="plum" className="normal-case">
                   Accès digital
